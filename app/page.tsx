@@ -1,52 +1,53 @@
-import Image from 'next/image';
+'use client';
+import { useState } from 'react';
+import { MessageSquare } from 'lucide-react';
+import { Header } from './components/header';
+import { Hero } from './components/hero';
+import { Skills } from './components/skills';
+import { Experience } from './components/experience';
+import { Education } from './components/education';
+import { Projects } from './components/projects';
+import { Contact } from './components/contact';
+import { Footer } from './components/footer';
+import { TechMarquee } from './components/tech-mark';
+import { Button } from '@/components/ui/button';
+import { AIChatDrawer } from './components/ai-chart-drawer';
+// import { Button } from './components/ui/button';
+export default function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
-export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-        <Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={100} height={20} priority />
-        <div className="z-10 flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs font-semibold text-3xl text-black leading-10 tracking-tight dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg text-zinc-600 leading-8 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{' '}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{' '}
-            or the{' '}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{' '}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 font-medium text-base sm:flex-row">
-          <a
-            className="z-10 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-black/[.08] border-solid px-5 transition-colors hover:border-transparent hover:bg-black/[.04] md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen overflow-x-hidden bg-[#050507] text-zinc-50 selection:bg-blue-600/30">
+      <Header onOpenChat={() => setIsChatOpen(true)} />
+
+      <main className="mx-auto max-w-7xl px-6 md:px-10">
+        <Hero />
       </main>
+
+      <TechMarquee />
+
+      <main className="mx-auto max-w-6xl space-y-32 px-6 py-24 md:px-10">
+        <Skills />
+        <div className="grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
+          <Experience />
+          <Education />
+        </div>
+        <Projects />
+        <Contact />
+      </main>
+
+      <Footer />
+
+      {/* Floating Chat Trigger - Changed rounded-3xl to rounded-full for a circle */}
+      <Button
+        size="icon"
+        className="group fixed right-10 bottom-10 z-50 h-16 w-16 rounded-full bg-blue-600 shadow-[0_0_40px_rgba(37,99,235,0.3)] transition-all duration-300 hover:scale-110 active:scale-95"
+        onClick={() => setIsChatOpen(true)}
+      >
+        <MessageSquare className="h-7 w-7 transition-transform group-hover:rotate-12" />
+      </Button>
+
+      <AIChatDrawer isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 }
