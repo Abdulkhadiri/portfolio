@@ -1,6 +1,4 @@
 'use client';
-// import Image from 'next/image';
-// import { PROFILE_IMAGE } from './data';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -35,51 +33,88 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+const MailIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect width="20" height="16" x="2" y="4" rx="2" />
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  </svg>
+);
+
 export const Hero = () => (
-  <section className="relative flex min-h-[90vh] flex-col items-center justify-center gap-12 pt-32 pb-16 lg:min-h-[85vh] lg:flex-row lg:justify-between lg:gap-20 lg:pt-0">
-    {/* Background Glow */}
-    <div className="pointer-events-none absolute top-1/2 left-0 -z-10 h-125 w-125 -translate-y-1/2 rounded-full bg-glow-blue blur-[120px]" />
+  <section className="noise-overlay relative flex min-h-[90vh] flex-col items-center justify-center gap-12 pt-32 pb-20 lg:min-h-[85vh] lg:flex-row lg:justify-between lg:gap-20 lg:pt-0">
+    {/* Background Glows */}
+    <div className="pointer-events-none absolute top-1/3 left-0 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-glow-blue blur-[120px]" />
+    <div className="pointer-events-none absolute right-0 bottom-1/4 -z-10 h-[300px] w-[300px] rounded-full bg-glow-blue opacity-50 blur-[100px]" />
 
     {/* Left Column: Content */}
-    <div className="order-2 flex-1 space-y-8 text-center lg:order-1 lg:text-left">
-      <div className="space-y-4">
+    <div className="relative z-10 order-2 flex-1 space-y-8 text-center lg:order-1 lg:text-left">
+      <div className="space-y-5">
+        {/* Status Badge */}
         <div className="flex justify-center lg:justify-start">
           <Badge
             variant="outline"
-            className="border-blue-500/20 bg-blue-600/10 px-5 py-1.5 font-black text-[10px] text-blue-500 uppercase tracking-[0.2em] md:text-xs dark:text-blue-400"
+            className="group border-blue-500/20 bg-blue-600/5 px-5 py-1.5 font-semibold text-[10px] text-blue-500 uppercase tracking-[0.2em] backdrop-blur-sm md:text-xs dark:border-blue-400/20 dark:text-blue-400"
           >
+            <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
             Available for New Projects
           </Badge>
         </div>
-        <h1 className="font-black text-6xl leading-[0.85] tracking-tighter sm:text-7xl md:text-8xl lg:text-[9rem] lg:leading-[0.8]">
+
+        {/* Name */}
+        <h1 className="font-black text-6xl leading-[0.9] tracking-tighter sm:text-7xl md:text-8xl lg:text-[9rem] lg:leading-[0.82]">
           KOLA <br />
-          <span className="text-blue-600">ABDUL</span> <br />
+          <span className="gradient-text">ABDUL</span> <br />
           <span className="text-text-subtle dark:text-zinc-800">KHADIRI</span>
         </h1>
       </div>
 
-      <p className="mx-auto max-w-145 font-medium text-lg text-text-muted leading-tight md:text-xl lg:mx-0 lg:text-2xl">
-        Associate Software Engineer specializing in <span className="text-foreground">enterprise automation</span> and{' '}
-        <span className="text-foreground">scalable cloud architecture</span>.
-      </p>
+      {/* Role / Tagline */}
+      <div className="space-y-3">
+        <p className="font-mono text-text-muted text-xs uppercase tracking-[0.3em]">Associate Software Engineer</p>
+        <p className="mx-auto max-w-[540px] text-base text-text-secondary leading-relaxed md:text-lg lg:mx-0 lg:text-xl">
+          Building <span className="font-semibold text-foreground">enterprise automation</span> systems and{' '}
+          <span className="font-semibold text-foreground">scalable cloud architecture</span> that power modern
+          businesses.
+        </p>
+      </div>
 
-      <div className="flex flex-col justify-center gap-5 pt-4 sm:flex-row lg:justify-start">
+      {/* Action Buttons */}
+      <div className="flex flex-col justify-center gap-4 pt-2 sm:flex-row lg:justify-start">
+        <Button
+          size="lg"
+          className="rounded-full bg-blue-600 px-8 font-semibold text-sm text-white shadow-blue-600/25 shadow-lg transition-all hover:scale-105 hover:bg-blue-700 hover:shadow-blue-600/40 active:scale-95"
+          onClick={() => {
+            const el = document.querySelector('#contact');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <MailIcon className="mr-2 h-4 w-4" />
+          Get in Touch
+        </Button>
         <div className="flex justify-center gap-3">
           <Button
             variant="outline"
             size="lg"
-            className="h-16 w-16 rounded-full border-border-default p-0 transition-all hover:scale-105 hover:bg-surface-hover"
+            className="h-12 w-12 rounded-full border-border-default p-0 transition-all hover:scale-110 hover:border-blue-500/30 hover:bg-surface-hover active:scale-95"
             onClick={() => window.open('https://github.com/kolaabdul', '_blank')}
           >
-            <GithubIcon className="h-6 w-6" />
+            <GithubIcon className="h-5 w-5" />
           </Button>
           <Button
             variant="outline"
             size="lg"
-            className="h-16 w-16 rounded-full border-border-default p-0 transition-all hover:scale-105 hover:bg-surface-hover"
+            className="h-12 w-12 rounded-full border-border-default p-0 transition-all hover:scale-110 hover:border-blue-500/30 hover:bg-surface-hover active:scale-95"
             onClick={() => window.open('https://linkedin.com/in/kolaabdul', '_blank')}
           >
-            <LinkedinIcon className="h-6 w-6" />
+            <LinkedinIcon className="h-5 w-5" />
           </Button>
         </div>
       </div>
@@ -87,20 +122,28 @@ export const Hero = () => (
 
     {/* Right Column: Visual */}
     <div className="fade-in zoom-in relative order-1 shrink-0 animate-in duration-1000 lg:order-2">
-      <div className="group relative h-64 w-64 sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-150 lg:w-125">
+      <div className="group relative h-64 w-64 sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-[500px] lg:w-[420px]">
         {/* Animated Background Ring */}
-        <div className="absolute inset-0 -z-10 rounded-[3rem] border-20 border-border-subtle/50 transition-transform duration-700 group-hover:scale-105" />
+        <div className="absolute inset-0 -z-10 rounded-[3rem] border-[16px] border-border-subtle/30 transition-transform duration-700 group-hover:scale-105" />
+
+        {/* Floating accent shapes */}
+        <div className="absolute -top-4 -right-4 h-20 w-20 animate-float rounded-full bg-blue-500/10 blur-2xl" />
+        <div
+          className="absolute -bottom-6 -left-6 h-24 w-24 animate-float rounded-full bg-blue-600/8 blur-2xl"
+          style={{ animationDelay: '3s' }}
+        />
 
         {/* Profile Image Container */}
-        <div className="h-full w-full overflow-hidden rounded-[2.5rem] border border-border-default bg-surface shadow-[0_0_50px_rgba(0,0,0,0.15)] dark:shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-          {/* <Image
-            width={500}
-            height={600}
-            src={PROFILE_IMAGE}
-            alt="Kola Abdul Khadiri"
-            priority
-            className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
-          /> */}
+        <div className="h-full w-full overflow-hidden rounded-[2.5rem] border border-border-default bg-surface shadow-2xl shadow-black/10 dark:shadow-black/30">
+          {/* Placeholder gradient mesh since image is commented out */}
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface via-surface-elevated to-surface">
+            <div className="space-y-3 text-center">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-blue-600/10">
+                <span className="font-black text-3xl text-blue-500">AK</span>
+              </div>
+              <p className="font-mono text-text-muted text-xs">Photo coming soon</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
