@@ -3,7 +3,6 @@
 // import { PROFILE_IMAGE } from './data';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -39,15 +38,15 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export const Hero = () => (
   <section className="relative flex min-h-[90vh] flex-col items-center justify-center gap-12 pt-32 pb-16 lg:min-h-[85vh] lg:flex-row lg:justify-between lg:gap-20 lg:pt-0">
     {/* Background Glow */}
-    <div className="pointer-events-none absolute top-1/2 left-0 -z-10 h-125 w-125 -translate-y-1/2 rounded-full bg-blue-600/10 blur-[120px]" />
+    <div className="pointer-events-none absolute top-1/2 left-0 -z-10 h-125 w-125 -translate-y-1/2 rounded-full bg-glow-blue blur-[120px]" />
 
     {/* Left Column: Content */}
     <div className="order-2 flex-1 space-y-8 text-center lg:order-1 lg:text-left">
       <div className="space-y-4">
         <div className="flex justify-center lg:justify-start">
           <Badge
-            variant="secondary"
-            className="border-blue-500/20 bg-blue-600/10 px-5 py-1.5 font-black text-[10px] text-blue-400 uppercase tracking-[0.2em] md:text-xs"
+            variant="outline"
+            className="border-blue-500/20 bg-blue-600/10 px-5 py-1.5 font-black text-[10px] text-blue-500 uppercase tracking-[0.2em] md:text-xs dark:text-blue-400"
           >
             Available for New Projects
           </Badge>
@@ -55,28 +54,21 @@ export const Hero = () => (
         <h1 className="font-black text-6xl leading-[0.85] tracking-tighter sm:text-7xl md:text-8xl lg:text-[9rem] lg:leading-[0.8]">
           KOLA <br />
           <span className="text-blue-600">ABDUL</span> <br />
-          <span className="text-zinc-800">KHADIRI</span>
+          <span className="text-text-subtle dark:text-zinc-800">KHADIRI</span>
         </h1>
       </div>
 
-      <p className="mx-auto max-w-145 font-medium text-lg text-zinc-400 leading-tight md:text-xl lg:mx-0 lg:text-2xl">
-        Associate Software Engineer specializing in <span className="text-white">enterprise automation</span> and{' '}
-        <span className="text-white">scalable cloud architecture</span>.
+      <p className="mx-auto max-w-145 font-medium text-lg text-text-muted leading-tight md:text-xl lg:mx-0 lg:text-2xl">
+        Associate Software Engineer specializing in <span className="text-foreground">enterprise automation</span> and{' '}
+        <span className="text-foreground">scalable cloud architecture</span>.
       </p>
 
       <div className="flex flex-col justify-center gap-5 pt-4 sm:flex-row lg:justify-start">
-        <Button
-          size="lg"
-          className="group h-16 rounded-full bg-white px-10 font-black text-black text-lg shadow-2xl shadow-white/10 hover:bg-zinc-200"
-          onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          My Portfolio <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-        </Button>
         <div className="flex justify-center gap-3">
           <Button
             variant="outline"
             size="lg"
-            className="h-16 w-16 rounded-full border-zinc-800 p-0 transition-all hover:scale-105 hover:bg-zinc-900"
+            className="h-16 w-16 rounded-full border-border-default p-0 transition-all hover:scale-105 hover:bg-surface-hover"
             onClick={() => window.open('https://github.com/kolaabdul', '_blank')}
           >
             <GithubIcon className="h-6 w-6" />
@@ -84,7 +76,7 @@ export const Hero = () => (
           <Button
             variant="outline"
             size="lg"
-            className="h-16 w-16 rounded-full border-zinc-800 p-0 transition-all hover:scale-105 hover:bg-zinc-900"
+            className="h-16 w-16 rounded-full border-border-default p-0 transition-all hover:scale-105 hover:bg-surface-hover"
             onClick={() => window.open('https://linkedin.com/in/kolaabdul', '_blank')}
           >
             <LinkedinIcon className="h-6 w-6" />
@@ -97,10 +89,10 @@ export const Hero = () => (
     <div className="fade-in zoom-in relative order-1 shrink-0 animate-in duration-1000 lg:order-2">
       <div className="group relative h-64 w-64 sm:h-80 sm:w-80 md:h-96 md:w-96 lg:h-150 lg:w-125">
         {/* Animated Background Ring */}
-        <div className="absolute inset-0 -z-10 rounded-[3rem] border-20 border-zinc-900/50 transition-transform duration-700 group-hover:scale-105" />
+        <div className="absolute inset-0 -z-10 rounded-[3rem] border-20 border-border-subtle/50 transition-transform duration-700 group-hover:scale-105" />
 
         {/* Profile Image Container */}
-        <div className="h-full w-full overflow-hidden rounded-[2.5rem] border border-zinc-800 bg-zinc-900 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+        <div className="h-full w-full overflow-hidden rounded-[2.5rem] border border-border-default bg-surface shadow-[0_0_50px_rgba(0,0,0,0.15)] dark:shadow-[0_0_50px_rgba(0,0,0,0.5)]">
           {/* <Image
             width={500}
             height={600}

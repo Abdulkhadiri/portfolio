@@ -14,7 +14,7 @@ export const Skills = () => (
   <section id="skills" className="scroll-mt-32 space-y-12 py-24">
     <div className="space-y-4 text-center">
       <h2 className="font-black text-4xl tracking-tighter md:text-6xl">TECHNICAL ARSENAL</h2>
-      <p className="mx-auto max-w-xl text-lg text-zinc-500">
+      <p className="mx-auto max-w-xl text-lg text-text-muted">
         A curated collection of technologies I use to build world-class enterprise systems.
       </p>
     </div>
@@ -24,7 +24,7 @@ export const Skills = () => (
         <Card
           key={skill.name}
           className={cn(
-            'group relative flex flex-col justify-between overflow-hidden border-zinc-800 p-6 transition-all duration-500 hover:border-blue-500/50',
+            'group relative flex flex-col justify-between overflow-hidden border-border-default p-6 transition-all duration-500 hover:border-blue-500/50',
             skill.size === 'large'
               ? 'col-span-2 row-span-2'
               : skill.size === 'medium'
@@ -38,7 +38,9 @@ export const Skills = () => (
           <div
             className={cn(
               'flex items-center justify-center rounded-xl transition-transform duration-500 group-hover:scale-110',
-              skill.size === 'large' ? 'h-16 w-16 bg-zinc-800 text-blue-400' : 'h-10 w-10 bg-zinc-900 text-zinc-400',
+              skill.size === 'large'
+                ? 'h-16 w-16 bg-surface-elevated text-blue-500 dark:bg-zinc-800 dark:text-blue-400'
+                : 'h-10 w-10 bg-surface text-text-secondary dark:bg-zinc-900 dark:text-zinc-400',
             )}
           >
             {skill.icon}
@@ -48,7 +50,7 @@ export const Skills = () => (
             <div className={cn('font-black tracking-tight', skill.size === 'large' ? 'text-2xl' : 'text-sm')}>
               {skill.name}
             </div>
-            <div className="font-bold text-[10px] text-zinc-500 uppercase tracking-widest">{skill.category}</div>
+            <div className="font-bold text-[10px] text-text-muted uppercase tracking-widest">{skill.category}</div>
           </div>
         </Card>
       ))}

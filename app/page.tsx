@@ -5,6 +5,7 @@ import { Header } from './components/header';
 import { Hero } from './components/hero';
 import { Skills } from './components/skills';
 import { Experience } from './components/experience';
+import { Achievements } from './components/achievements';
 import { Education } from './components/education';
 import { Projects } from './components/projects';
 import { Contact } from './components/contact';
@@ -17,7 +18,7 @@ export default function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#050507] text-zinc-50 selection:bg-blue-600/30">
+    <div className="min-h-screen overflow-x-hidden bg-background text-foreground selection:bg-blue-600/30">
       <Header onOpenChat={() => setIsChatOpen(true)} />
 
       <main className="mx-auto max-w-7xl px-6 md:px-10">
@@ -28,8 +29,9 @@ export default function App() {
 
       <main className="mx-auto max-w-6xl space-y-32 px-6 py-24 md:px-10">
         <Skills />
+        <Experience />
+        <Achievements />
         <div className="grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
-          <Experience />
           <Education />
         </div>
         <Projects />

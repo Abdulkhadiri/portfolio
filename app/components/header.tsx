@@ -3,6 +3,7 @@ import type React from 'react';
 import { useState, useEffect } from 'react';
 import { Sparkles, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
 
 export const Header = ({ onOpenChat }: { onOpenChat: () => void }) => {
@@ -42,7 +43,7 @@ export const Header = ({ onOpenChat }: { onOpenChat: () => void }) => {
     <nav
       className={cn(
         'fixed top-0 z-50 w-full transition-all duration-500',
-        scrolled ? 'border-zinc-800 border-b bg-zinc-950/80 py-3 backdrop-blur-xl' : 'bg-transparent py-6',
+        scrolled ? 'border-border-default border-b bg-background/80 py-3 backdrop-blur-xl' : 'bg-transparent py-6',
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 md:px-10">
@@ -62,23 +63,25 @@ export const Header = ({ onOpenChat }: { onOpenChat: () => void }) => {
               key={link.label}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className="text-zinc-500 transition-colors hover:text-white"
+              className="text-text-muted transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
           ))}
+          <ThemeToggle />
           <Button
             variant="outline"
             size="sm"
             onClick={onOpenChat}
-            className="rounded-full border-blue-600/20 bg-blue-600/5 px-6 text-blue-400 hover:bg-blue-600 hover:text-white"
+            className="rounded-full border-blue-600/20 bg-blue-600/5 px-6 text-blue-500 hover:bg-blue-600 hover:text-white dark:text-blue-400"
           >
             <Sparkles className="mr-2 h-3.5 w-3.5" /> AI Assistant
           </Button>
         </div>
 
         {/* Mobile Nav Toggle */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
@@ -88,7 +91,7 @@ export const Header = ({ onOpenChat }: { onOpenChat: () => void }) => {
       {/* Mobile Menu Dropdown */}
       <div
         className={cn(
-          'absolute top-full left-0 w-full overflow-hidden border-zinc-800 border-b bg-zinc-950 transition-all duration-300 md:hidden',
+          'absolute top-full left-0 w-full overflow-hidden border-border-default border-b bg-background transition-all duration-300 md:hidden',
           isMenuOpen ? 'max-h-100 opacity-100' : 'max-h-0 opacity-0',
         )}
       >
@@ -98,7 +101,7 @@ export const Header = ({ onOpenChat }: { onOpenChat: () => void }) => {
               key={link.label}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className="font-bold text-xl text-zinc-400 hover:text-white"
+              className="font-bold text-text-secondary text-xl hover:text-foreground"
             >
               {link.label}
             </a>

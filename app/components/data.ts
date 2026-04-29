@@ -74,3 +74,32 @@ export const EDUCATION = {
   period: '2021 - 2025',
   cgpa: '9.04 / 10.0',
 };
+
+export const ACHIEVEMENTS = [
+  {
+    title: 'Best Innovation Award',
+    organization: 'Tech Hackathon 2024',
+    year: '2024',
+    description:
+      'Won first place for developing an AI-powered accessibility tool that helps visually impaired users navigate web applications.',
+  },
+  {
+    title: "Dean's List",
+    organization: 'Srinivasa Ramanujan Institute of Technology',
+    year: '2023',
+    description: 'Recognized for academic excellence, maintaining a GPA above 9.0 across all semesters.',
+  },
+  {
+    title: 'Open Source Contributor',
+    organization: 'GitHub',
+    year: '2023',
+    description:
+      'Contributed to multiple open-source projects including React ecosystem libraries and developer tools.',
+  },
+  {
+    title: 'Certified Cloud Developer',
+    organization: 'Google Cloud',
+    year: '2024',
+    description: 'Obtained professional certification in cloud development and architecture.',
+  },
+];

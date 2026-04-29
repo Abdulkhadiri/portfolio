@@ -14,12 +14,12 @@ export const AIChatDrawer = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
       {/* <div className="absolute inset-0 bg-zinc-950/80 backdrop-blur-sm" onClick={onClose} /> */}
       <div
         className={cn(
-          'absolute top-0 right-0 bottom-0 w-full max-w-md border-zinc-800 border-l bg-zinc-950 shadow-2xl transition-transform duration-500 ease-in-out',
+          'absolute top-0 right-0 bottom-0 w-full max-w-md border-border-default border-l bg-background shadow-2xl transition-transform duration-500 ease-in-out',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
       >
         <div className="flex h-full flex-col">
-          <header className="flex items-center justify-between border-zinc-800 border-b p-6">
+          <header className="flex items-center justify-between border-border-default border-b p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-blue-600/20 shadow-lg">
                 <Sparkles className="h-6 w-6" />
@@ -28,7 +28,9 @@ export const AIChatDrawer = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
                 <h3 className="font-bold">Kola&apos;s AI</h3>
                 <div className="flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
-                  <span className="font-bold text-[10px] text-zinc-500 uppercase tracking-widest">Gemini 3.0 Pro</span>
+                  <span className="font-bold text-[10px] text-text-muted uppercase tracking-widest">
+                    Gemini 3.0 Pro
+                  </span>
                 </div>
               </div>
             </div>
@@ -39,19 +41,19 @@ export const AIChatDrawer = ({ isOpen, onClose }: { isOpen: boolean; onClose: ()
 
           <div className="flex-1 space-y-6 overflow-y-auto p-6">
             <div className="flex justify-start">
-              <div className="flex items-center gap-3 rounded-[2rem] rounded-tl-md border border-zinc-800 bg-zinc-900 px-5 py-3.5">
+              <div className="flex items-center gap-3 rounded-[2rem] rounded-tl-md border border-border-default bg-surface px-5 py-3.5 dark:bg-zinc-900">
                 <div className="flex gap-1">
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 [animation-delay:-0.3s]" />
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500 [animation-delay:-0.15s]" />
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-blue-500" />
                 </div>
-                <span className="font-medium text-xs text-zinc-500">Synthesizing...</span>
+                <span className="font-medium text-text-muted text-xs">Synthesizing...</span>
               </div>
             </div>
           </div>
 
-          <footer className="border-zinc-800 border-t bg-zinc-950/50 p-6 backdrop-blur-md">
-            <div className="flex gap-3 rounded-full border border-zinc-800 bg-zinc-900/50 p-2 transition-colors focus-within:border-blue-500/50">
+          <footer className="border-border-default border-t bg-background/50 p-6 backdrop-blur-md">
+            <div className="flex gap-3 rounded-full border border-border-default bg-surface/50 p-2 transition-colors focus-within:border-blue-500/50 dark:bg-zinc-900/50">
               <Input
                 placeholder="Ask about my workflows..."
                 className="border-none bg-transparent px-4 focus-visible:ring-0"

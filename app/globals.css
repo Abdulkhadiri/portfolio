@@ -44,10 +44,26 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Custom semantic tokens for portfolio theming */
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-hover: var(--surface-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-glow-blue: var(--glow-blue);
+  --color-marquee-text: var(--marquee-text);
+  --color-marquee-text-hover: var(--marquee-text-hover);
 }
 
 :root {
   --radius: 0.625rem;
+
+  /* shadcn defaults - light */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -77,11 +93,26 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
+  --background: oklch(0.985 0 0);
   --foreground: oklch(0.145 0 0);
+
+  /* Portfolio semantic tokens - light */
+  --surface: oklch(0.97 0 0);
+  --surface-elevated: oklch(1 0 0);
+  --surface-hover: oklch(0.95 0 0);
+  --text-primary: oklch(0.145 0 0);
+  --text-secondary: oklch(0.37 0 0);
+  --text-muted: oklch(0.5 0 0);
+  --text-subtle: oklch(0.65 0 0);
+  --border-subtle: oklch(0.9 0 0);
+  --border-default: oklch(0.85 0 0);
+  --glow-blue: oklch(0.55 0.2 260 / 8%);
+  --marquee-text: oklch(0.9 0 0);
+  --marquee-text-hover: oklch(0.55 0.2 260 / 20%);
 }
 
 .dark {
+  /* shadcn defaults - dark */
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -113,6 +144,20 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Portfolio semantic tokens - dark */
+  --surface: oklch(0.21 0 0);
+  --surface-elevated: oklch(0.274 0 0);
+  --surface-hover: oklch(0.32 0 0);
+  --text-primary: oklch(0.985 0 0);
+  --text-secondary: oklch(0.632 0 0);
+  --text-muted: oklch(0.552 0 0);
+  --text-subtle: oklch(0.45 0 0);
+  --border-subtle: oklch(0.274 0 0);
+  --border-default: oklch(0.37 0 0);
+  --glow-blue: oklch(0.55 0.2 260 / 12%);
+  --marquee-text: oklch(0.35 0 0);
+  --marquee-text-hover: oklch(0.55 0.2 260 / 30%);
 }
 
 @layer base {
@@ -122,4 +167,13 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Smooth theme transitions */
+html.transitioning,
+html.transitioning *,
+html.transitioning *::before,
+html.transitioning *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease,
+    stroke 0.3s ease, box-shadow 0.3s ease !important;
 }
