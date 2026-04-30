@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { Layers, ArrowUpRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -33,17 +34,17 @@ export const Projects = () => (
             <div
               className={`relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-br ${PROJECT_GRADIENTS[i % PROJECT_GRADIENTS.length]} p-8 sm:p-12 lg:h-auto lg:w-2/5`}
             >
-              {/* Grid pattern overlay */}
-              <div
-                className="absolute inset-0 opacity-[0.04]"
-                style={{
-                  backgroundImage:
-                    'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
-                  backgroundSize: '32px 32px',
-                }}
+              <Image
+                src={proj.image}
+                alt={`${proj.title} preview`}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                priority={i === 0}
               />
-              <div className="relative flex h-full w-full items-center justify-center rounded-2xl border border-border-default/50 bg-background/80 backdrop-blur-sm transition-transform duration-500 group-hover:scale-[1.03]">
-                <Layers className="h-14 w-14 text-blue-500/30 transition-colors duration-300 group-hover:text-blue-500/60" />
+              <div className="absolute inset-0 bg-gradient-to-br from-background/20 via-background/10 to-background/30" />
+              <div className="absolute right-4 bottom-4 rounded-full border border-border-default/70 bg-background/70 p-2 backdrop-blur-sm">
+                <Layers className="h-4 w-4 text-blue-500/70" />
               </div>
             </div>
 

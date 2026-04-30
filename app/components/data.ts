@@ -9,12 +9,14 @@ export const PROJECTS = [
     title: 'Enterprise Project Management Suite',
     description:
       'A professional platform for large-scale team collaboration, tracking complex tasks with n8n workflow automation.',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=1400',
     tech: ['Next.js', 'PostgreSQL', 'GCP', 'n8n'],
     highlights: ['RBAC Implementation', 'Interactive Gantt Charts', 'Automated Workflows'],
   },
   {
     title: 'Cloud-Native Automation Engine',
     description: 'Distributed workflow engine designed for high-throughput enterprise data processing pipelines.',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1400',
     tech: ['Node.js', 'Vertex AI', 'Docker', 'GCP'],
     highlights: ['99.9% Uptime', 'AI-Powered Logic', 'Low-Latency Execution'],
   },

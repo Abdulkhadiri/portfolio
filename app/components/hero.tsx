@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -104,7 +105,7 @@ export const Hero = () => (
             variant="outline"
             size="lg"
             className="h-12 w-12 rounded-full border-border-default p-0 transition-all hover:scale-110 hover:border-blue-500/30 hover:bg-surface-hover active:scale-95"
-            onClick={() => window.open('https://github.com/kolaabdul', '_blank')}
+            onClick={() => window.open('https://github.com/Abdulkhadiri', '_blank')}
           >
             <GithubIcon className="h-5 w-5" />
           </Button>
@@ -112,7 +113,7 @@ export const Hero = () => (
             variant="outline"
             size="lg"
             className="h-12 w-12 rounded-full border-border-default p-0 transition-all hover:scale-110 hover:border-blue-500/30 hover:bg-surface-hover active:scale-95"
-            onClick={() => window.open('https://linkedin.com/in/kolaabdul', '_blank')}
+            onClick={() => window.open('https://in.linkedin.com/in/abdul-khadiri-kola-9a7751308', '_blank')}
           >
             <LinkedinIcon className="h-5 w-5" />
           </Button>
@@ -135,15 +136,14 @@ export const Hero = () => (
 
         {/* Profile Image Container */}
         <div className="h-full w-full overflow-hidden rounded-[2.5rem] border border-border-default bg-surface shadow-2xl shadow-black/10 dark:shadow-black/30">
-          {/* Placeholder gradient mesh since image is commented out */}
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface via-surface-elevated to-surface">
-            <div className="space-y-3 text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-blue-600/10">
-                <span className="font-black text-3xl text-blue-500">AK</span>
-              </div>
-              <p className="font-mono text-text-muted text-xs">Photo coming soon</p>
-            </div>
-          </div>
+          <Image
+            src="/unnamed.jpg"
+            alt="Kola Abdul Khadiri portrait"
+            width={840}
+            height={1000}
+            className="h-full w-full object-cover object-center"
+            priority
+          />
         </div>
       </div>
     </div>
