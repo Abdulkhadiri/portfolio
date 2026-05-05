@@ -46,6 +46,12 @@ export const SKILLS = [
     size: 'medium',
   },
   { name: 'Vertex AI', category: 'AI', icon: React.createElement(Sparkles, { className: 'w-5 h-5' }), size: 'small' },
+  {
+    name: 'Terraform',
+    category: 'Infra',
+    icon: React.createElement(Workflow, { className: 'w-5 h-5' }),
+    size: 'small',
+  },
   { name: 'Security', category: 'Infra', icon: React.createElement(Shield, { className: 'w-5 h-5' }), size: 'small' },
   {
     name: 'API Design',
@@ -92,11 +98,11 @@ export const ACHIEVEMENTS = [
     description: 'Recognized for academic excellence, maintaining a GPA above 9.0 across all semesters.',
   },
   {
-    title: 'Open Source Contributor',
-    organization: 'GitHub',
-    year: '2023',
+    title: 'Best Final Year Project',
+    organization: 'Srinivasa Ramanujan Institute of Technology',
+    year: '2025',
     description:
-      'Contributed to multiple open-source projects including React ecosystem libraries and developer tools.',
+      'Received the Best Final Year Project award for building a scalable, automation-driven platform with strong real-world impact.',
   },
   {
     title: 'Certified Cloud Developer',
