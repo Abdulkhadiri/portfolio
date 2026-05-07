@@ -13,6 +13,7 @@ import { Footer } from './components/footer';
 import { TechMarquee } from './components/tech-mark';
 import { Button } from '@/components/ui/button';
 import { AIChatDrawer } from './components/ai-chart-drawer';
+import { Hobbies } from './components/hobbies';
 
 export default function App() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -37,6 +38,8 @@ export default function App() {
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           <Education />
         </div>
+        <div className="section-divider my-6" />
+        <Hobbies />
         <div className="section-divider my-6" />
         <Projects />
         <div className="section-divider my-6" />
